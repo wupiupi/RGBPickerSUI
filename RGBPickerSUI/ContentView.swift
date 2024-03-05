@@ -15,28 +15,32 @@ struct ContentView: View {
 
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 16) {
-            RoundedRectangle(cornerRadius: 30)
-                .frame(height: 200)
-                .foregroundStyle(
-                    Color(
-                        red: redSliderValue / 255,
-                        green: greenSliderValue / 255,
-                        blue: blueSliderValue / 255
+        ZStack {
+            Color.black.ignoresSafeArea()
+            
+            VStack(spacing: 16) {
+                RoundedRectangle(cornerRadius: 30)
+                    .frame(height: 200)
+                    .foregroundStyle(
+                        Color(
+                            red: redSliderValue / 255,
+                            green: greenSliderValue / 255,
+                            blue: blueSliderValue / 255
+                        )
                     )
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(.white, lineWidth: 5)
-                )
-            
-            SetSlider(sliderValue: $redSliderValue, tintColor: .red)
-            SetSlider(sliderValue: $greenSliderValue, tintColor: .green)
-            SetSlider(sliderValue: $blueSliderValue, tintColor: .blue)
-            
-            Spacer()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(.white, lineWidth: 5)
+                    )
+                
+                SetSlider(sliderValue: $redSliderValue, tintColor: .red)
+                SetSlider(sliderValue: $greenSliderValue, tintColor: .green)
+                SetSlider(sliderValue: $blueSliderValue, tintColor: .blue)
+                
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
