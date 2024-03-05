@@ -15,6 +15,8 @@ struct SetSlider: View {
         HStack {
             Text(sliderValue.string())
                 .frame(width: 40, alignment: .leading)
+                .foregroundStyle(.white)
+                .font(.title3)
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .tint(tintColor)
         }
