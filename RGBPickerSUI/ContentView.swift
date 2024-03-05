@@ -24,6 +24,7 @@ struct ContentView: View {
 
     // MARK: - Body
     var body: some View {
+        
         VStack(spacing: 16) {
             RoundedRectangle(cornerRadius: 30)
                 .frame(height: 200)
@@ -38,21 +39,34 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(.white, lineWidth: 5)
                 )
+                .toolbar {
+                    ToolbarItem(placement: .keyboard) {
+                        
+                        Button("Done") {
+                            UIApplication.shared.sendAction(
+                                #selector(UIResponder.resignFirstResponder),
+                                to: nil,
+                                from: nil,
+                                for: nil
+                            )
+                        }
+                    }
+                }
             
             SetSlider(
                 sliderValue: $redSliderValue,
-                tintColor: .red,
-                textFieldValue: $redSliderTextValue
+                textFieldValue: $redSliderTextValue,
+                tintColor: .red
             )
             SetSlider(
                 sliderValue: $greenSliderValue,
-                tintColor: .green,
-                textFieldValue: $greenSliderTextValue
+                textFieldValue: $greenSliderTextValue,
+                tintColor: .green
             )
             SetSlider(
                 sliderValue: $blueSliderValue,
-                tintColor: .blue,
-                textFieldValue: $blueSliderTextValue
+                textFieldValue: $blueSliderTextValue,
+                tintColor: .blue
             )
             
             Spacer()
@@ -65,23 +79,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
-struct SetSlider: View {
-    @Binding var sliderValue: Double
-    let tintColor: Color
-    @Binding var textFieldValue: String
-    
-    var body: some View {
-        HStack {
-            Text(sliderValue.string())
-                .frame(width: 40, alignment: .leading)
-            
-            Slider(value: $sliderValue, in: 0...255, step: 1)
-                .tint(tintColor)
-            
-            TextField(sliderValue.string(), text: $textFieldValue)
-                .frame(width: 50)
-        }
-    }
-}
-

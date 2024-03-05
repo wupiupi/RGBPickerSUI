@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A04DE3F42B9788090042B217 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04DE3F32B9788090042B217 /* SliderView.swift */; };
 		A0D1936B2B976A2B007237A3 /* RGBPickerSUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1936A2B976A2B007237A3 /* RGBPickerSUIApp.swift */; };
 		A0D1936D2B976A2B007237A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1936C2B976A2B007237A3 /* ContentView.swift */; };
 		A0D1936F2B976A2C007237A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D1936E2B976A2C007237A3 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A04DE3F32B9788090042B217 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		A0D193672B976A2B007237A3 /* RGBPickerSUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGBPickerSUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D1936A2B976A2B007237A3 /* RGBPickerSUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBPickerSUIApp.swift; sourceTree = "<group>"; };
 		A0D1936C2B976A2B007237A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				A0D1936A2B976A2B007237A3 /* RGBPickerSUIApp.swift */,
 				A0D1936C2B976A2B007237A3 /* ContentView.swift */,
+				A04DE3F32B9788090042B217 /* SliderView.swift */,
 				A0D1936E2B976A2C007237A3 /* Assets.xcassets */,
 				A0D193702B976A2C007237A3 /* Preview Content */,
 				A0D193792B97778C007237A3 /* Extension + Double.swift */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D1936D2B976A2B007237A3 /* ContentView.swift in Sources */,
+				A04DE3F42B9788090042B217 /* SliderView.swift in Sources */,
 				A0D1936B2B976A2B007237A3 /* RGBPickerSUIApp.swift in Sources */,
 				A0D1937A2B97778C007237A3 /* Extension + Double.swift in Sources */,
 			);
