@@ -74,12 +74,12 @@ struct SetSlider: View {
     var body: some View {
         HStack {
             Text(sliderValue.string())
-                .frame(width: 40)
+                .frame(width: 40, alignment: .leading)
             
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .tint(tintColor)
             
-            TextField("255", text: $textFieldValue)
+            TextField(sliderValue.string(), text: $textFieldValue)
                 .frame(width: 50)
         }
     }
