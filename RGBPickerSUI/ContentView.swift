@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     // MARK: - @State Properties
     @State private var redSliderValue = Double.random(in: 0...255)
     @State private var greenSliderValue = Double.random(in: 0...255)
     @State private var blueSliderValue = Double.random(in: 0...255)
     
     @State private var redSliderTextValue = ""
-    @State private var redSliderTextFieldIsFocused = ""
-    
     @State private var greenSliderTextValue = ""
-    @State private var greenSliderTextFieldIsFouced = ""
-    
     @State private var blueSliderTextValue = ""
-    @State private var greenSliderTextFieldIsFocused = ""
 
     // MARK: - Body
     var body: some View {
-        
+
         VStack(spacing: 16) {
             RoundedRectangle(cornerRadius: 30)
                 .frame(height: 200)
@@ -41,14 +37,11 @@ struct ContentView: View {
                 )
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
-                        
-                        Button("Done") {
-                            UIApplication.shared.sendAction(
-                                #selector(UIResponder.resignFirstResponder),
-                                to: nil,
-                                from: nil,
-                                for: nil
-                            )
+                        HStack {
+                            Spacer()
+                            Button("Done") {
+                                hideKeyboard()
+                            }
                         }
                     }
                 }
@@ -72,10 +65,25 @@ struct ContentView: View {
             Spacer()
         }
         .textFieldStyle(.roundedBorder)
+        .ignoresSafeArea()
         .padding()
+        .onTapGesture {
+            hideKeyboard()
+        }
+    }
+    
+    // MARK: - Private Method
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
     }
 }
 
 #Preview {
     ContentView()
 }
+

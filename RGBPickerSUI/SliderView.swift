@@ -24,6 +24,30 @@ struct SetSlider: View {
             TextField(sliderValue.string(), text: $textFieldValue)
                 .frame(width: 50)
                 .keyboardType(.numberPad)
+                .onChange(of: sliderValue) { _, newValue in
+                    if 0...255 ~= newValue {
+                        sliderValue = newValue
+                    }
+                }
         }
     }
+    
+    // MARK: - Private Methods
+    private func validate(value: Double) -> Bool {
+        0...255 ~= value
+    }
+    
+    private func setValue(value: Double) {
+        sliderValue = validate(value: value)
+        ? Double(textFieldValue) ?? sliderValue
+        : sliderValue
+    }
+}
+
+#Preview {
+    SetSlider(
+        sliderValue: .constant(125),
+        textFieldValue: .constant(""),
+        tintColor: .red
+    )
 }
