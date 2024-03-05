@@ -12,6 +12,15 @@ struct ContentView: View {
     @State private var redSliderValue = Double.random(in: 0...255)
     @State private var greenSliderValue = Double.random(in: 0...255)
     @State private var blueSliderValue = Double.random(in: 0...255)
+    
+    @State private var redSliderTextValue = ""
+    @State private var redSliderTextFieldIsFocused = ""
+    
+    @State private var greenSliderTextValue = ""
+    @State private var greenSliderTextFieldIsFouced = ""
+    
+    @State private var blueSliderTextValue = ""
+    @State private var greenSliderTextFieldIsFocused = ""
 
     // MARK: - Body
     var body: some View {
@@ -30,12 +39,25 @@ struct ContentView: View {
                         .stroke(.white, lineWidth: 5)
                 )
             
-            SetSlider(sliderValue: $redSliderValue, tintColor: .red)
-            SetSlider(sliderValue: $greenSliderValue, tintColor: .green)
-            SetSlider(sliderValue: $blueSliderValue, tintColor: .blue)
+            SetSlider(
+                sliderValue: $redSliderValue,
+                tintColor: .red,
+                textFieldValue: $redSliderTextValue
+            )
+            SetSlider(
+                sliderValue: $greenSliderValue,
+                tintColor: .green,
+                textFieldValue: $greenSliderTextValue
+            )
+            SetSlider(
+                sliderValue: $blueSliderValue,
+                tintColor: .blue,
+                textFieldValue: $blueSliderTextValue
+            )
             
             Spacer()
         }
+        .textFieldStyle(.roundedBorder)
         .padding()
     }
 }
@@ -47,12 +69,18 @@ struct ContentView: View {
 struct SetSlider: View {
     @Binding var sliderValue: Double
     let tintColor: Color
+    @Binding var textFieldValue: String
     
     var body: some View {
         HStack {
             Text(sliderValue.string())
+                .frame(width: 40)
+            
             Slider(value: $sliderValue, in: 0...255, step: 1)
                 .tint(tintColor)
+            
+            TextField("255", text: $textFieldValue)
+                .frame(width: 50)
         }
     }
 }
